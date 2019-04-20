@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { appendToRecipes } from '../store/actions.js';
 import RecipeItem from './RecipeItem.js';
 
 const RecipeList = props => {
-  return props.recipes.map((hit, i) => {
-    return <RecipeItem hit={hit} key={i} />;
-  });
+  const { currentDish, list, start, end, isLoading } = props.recipes;
+  return (
+    <Fragment>
+      <div className="row">
+        {list.map((hit, i) => (
+          <RecipeItem key={i} hit={hit} />
+        ))}
+      </div>
+      {isLoading ? (
+        <div className="row py-5">
+          <div className="spinner-border text-primary" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      ) : null}
+      {list.length > 0 && !isLoading ? (
+        <div className="row py-5">
+          <button
+            className="btn btn-link"
+            onClick={() => props.appendToRecipes(currentDish, start, end)}
+          >
+            load more
+          </button>
+        </div>
+      ) : null}
+    </Fragment>
+  );
 };
 
 const mapStateToProps = ({ recipes }) => {
@@ -16,16 +41,5 @@ const mapStateToProps = ({ recipes }) => {
 
 export default connect(
   mapStateToProps,
-  null
+  { appendToRecipes }
 )(RecipeList);
-
-/**
-f2f_url: "http://food2fork.com/view/47042"
-image_url: "http://static.food2fork.com/5551711173_dc42f7fc4b_zbd8a.jpg"
-publisher: "The Pioneer Woman"
-publisher_url: "http://thepioneerwoman.com"
-recipe_id: "47042"
-social_rank: 100
-source_url: "http://thepioneerwoman.com/cooking/2011/03/spicy-dr-pepper-shredded-pork/"
-title: "Spicy Dr. Pepper Shredded Pork"
- */

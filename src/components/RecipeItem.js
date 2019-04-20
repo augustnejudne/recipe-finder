@@ -16,7 +16,9 @@ const RecipeItem = ({
     // if (favorites.includes(hit)) {
     //   setStarred(true);
     // }
-    const inFavorites = favorites.find(e => e.recipe.label === hit.recipe.label);
+    const inFavorites = favorites.find(
+      e => e.recipe.label === hit.recipe.label
+    );
     if (inFavorites) {
       setStarred(true);
     }
@@ -32,53 +34,77 @@ const RecipeItem = ({
   };
 
   return (
-    <div className="card my-2 mx-1" style={{ width: '18rem' }}>
-      <img
-        src={hit.recipe.image}
-        alt={hit.recipe.label}
-        className="card-img-top"
-        style={{ objectFit: 'cover', width: '100%', height: '200px' }}
-      />
-      <div
-        className="card-body"
-        style={{
-          height: expand ? 'auto' : '200px',
-          overflow: 'hidden',
-          position: 'relative',
-        }}
-      >
-        <h5 className="card-title">
-          <a href={hit.recipe.url} target="_blank" rel="noopener noreferrer">
-            {hit.recipe.label}
-          </a>
-        </h5>
-        <ul className="text-left">
-          {hit.recipe.ingredients.map((ingredient, i) => (
-            <li key={i}>{ingredient.text}</li>
-          ))}
-        </ul>
+    <div className="col-sm-6 col-md-4 col-xl-3">
+      <div className="card my-2 mx-1">
+        <a href={hit.recipe.url} target="_blank" rel="noopener noreferrer">
+          <img
+            src={hit.recipe.image}
+            alt={hit.recipe.label}
+            className="card-img-top"
+            style={{ objectFit: 'cover', width: '100%', height: '200px' }}
+          />
+        </a>
         <div
+          className="card-body"
           style={{
-            background: 'linear-gradient(transparent, white 50%)',
-            position: 'absolute',
-            bottom: 0,
-            width: '100%',
-            textAlign: 'right',
-            paddingRight: '10%',
+            height: expand ? 'auto' : '400px',
+            overflow: 'hidden',
+            position: 'relative',
           }}
         >
-          <button className="btn btn-link" onClick={() => setExpand(!expand)}>
-            {expand ? 'less' : 'more'}
-          </button>
+          <h5 className="card-title">
+            <a href={hit.recipe.url} target="_blank" rel="noopener noreferrer">
+              {hit.recipe.label}
+            </a>
+          </h5>
+          {hit.recipe.healthLabels.map((healthLabel, i) => (
+            <span
+              key={i}
+              className="badge badge-pill badge-success mx-1 fontweight-light"
+            >
+              <a href={`https://www.google.com/search?q=${healthLabel}`}>
+                {healthLabel}
+              </a>
+            </span>
+          ))}
+          {hit.recipe.cautions.map((caution, i) => (
+            <span
+              key={i}
+              className="badge badge-pill badge-danger mx-1 fontweight-light"
+            >
+              <a href={`https://www.google.com/search?q=${caution}`}>
+                {caution}
+              </a>
+            </span>
+          ))}
+          <p className="text-left text-success mt-3">
+            Calories: {hit.recipe.calories.toFixed(2)}
+          </p>
+          <ul className="text-left">
+            {hit.recipe.ingredients.map((ingredient, i) => (
+              <li key={i}>{ingredient.text}</li>
+            ))}
+          </ul>
+          <div
+            style={{
+              background: 'linear-gradient(transparent, white 50%)',
+              position: 'absolute',
+              bottom: 0,
+              width: '100%',
+              textAlign: 'right',
+              paddingRight: '10%',
+            }}
+          >
+            <button className="btn btn-link" onClick={() => setExpand(!expand)}>
+              {expand ? 'less' : 'more'}
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="card-footer">
-        <button
-          className={`btn btn-sm btn-${starred ? 'danger' : 'success'}`}
-          onClick={() => favorite()}
-        >
-          {!starred ? 'Add to favorite' : 'Remove from favorite'}
-        </button>
+        <div className="card-footer">
+          <span onClick={favorite} style={{fontSize: '1.5rem', cursor: 'pointer'}}>
+            {!starred ? <i className="far fa-heart text-dark" /> : <i className="fas fa-heart text-danger" />}
+          </span>
+        </div>
       </div>
     </div>
   );

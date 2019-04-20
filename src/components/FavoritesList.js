@@ -1,14 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeFromFavorites } from '../store/actions.js'
+import { removeFromFavorites } from '../store/actions.js';
 import RecipeItem from './RecipeItem.js';
 
 const FavoritesList = props => {
-  return props.favorites.map((hit, i) => {
-    return (
-      <RecipeItem hit={hit} key={i} />
-    );
-  });
+  return props.favorites.map((hit, i) => <RecipeItem hit={hit} key={i} />);
 };
 
 const mapStateToProps = ({ favorites }) => {

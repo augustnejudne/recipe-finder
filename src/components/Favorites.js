@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Favorites = () => {
   return (
     <Fragment>
-      <Link to="/">recipe finder</Link>
+      <Link to="/">back to recipe finder</Link>
       <h2>Favorites</h2>
       <div className="container">
         <div className="row justify-content-center">

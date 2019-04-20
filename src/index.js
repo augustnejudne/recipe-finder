@@ -7,12 +7,15 @@ import './styles/index.css';
 import App from './components/App.js';
 import Favorites from './components/Favorites.js';
 
-import { createStore } from 'redux';
+
+import { createStore, applyMiddleware } from 'redux';
+// import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducers.js';
+import ReduxThunk from 'redux-thunk';
 
-const store = createStore(rootReducer);
-store.subscribe(() => console.log('store', store.getState()));
+// const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 ReactDOM.render(
   <Provider store={store}>

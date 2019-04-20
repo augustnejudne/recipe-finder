@@ -2,3 +2,11 @@ body {
   text-align: center;
   padding: 5%;
 }
+
+.fontweight-light {
+  font-weight: 400;
+}
+
+.badge a {
+  color: #fff;
+}

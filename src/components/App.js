@@ -1,35 +1,27 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import SearchRecipes from './SearchRecipes.js';
 import RecipeList from './RecipeList.js';
-import { Link } from 'react-router-dom';
-import './App.css';
+import { connect } from 'react-redux';
 
-const App = () => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const renderSpinner = () => (
-    <div className="lds-ring">
-      <div />
-      <div />
-      <div />
-      <div />
-    </div>
-  );
-
+const App = props => {
   return (
     <Fragment>
       <Link to="/favorites">favorites</Link>
       <h2>Recipe Finder</h2>
       <div className="container">
         <div className="row justify-content-center">
-          <SearchRecipes setIsLoading={setIsLoading} />
+          <SearchRecipes />
         </div>
         <div className="row justify-content-center">
-          {isLoading ? renderSpinner() : <RecipeList />}
+          <RecipeList />
         </div>
       </div>
     </Fragment>
   );
 };
 
-export default App;
+export default connect(
+  null,
+  null
+)(App);
