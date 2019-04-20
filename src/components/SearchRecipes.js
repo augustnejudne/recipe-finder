@@ -3,7 +3,6 @@ import {
   Form,
   FormGroup,
   FormControl,
-  FormLabel,
   Button,
 } from 'react-bootstrap';
 import { connect } from 'react-redux';
