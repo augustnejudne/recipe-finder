@@ -4,7 +4,7 @@ import { appendToRecipes } from '../store/actions.js';
 import RecipeItem from './RecipeItem.js';
 
 const RecipeList = props => {
-  const { currentDish, list, start, end, isLoading } = props.recipes;
+  const { currentDish, list, start, end, isLoading, error } = props.recipes;
   return (
     <Fragment>
       <div className="row">
@@ -29,6 +29,11 @@ const RecipeList = props => {
           </button>
         </div>
       ) : null}
+      {
+        error ?
+        <h4 className="display-4">{error}</h4>
+        : null
+      }
     </Fragment>
   );
 };

@@ -23,6 +23,7 @@ const recipes = (
       return {
         ...state,
         isLoading: true,
+        list: []
       };
     case 'FETCH_RECIPES_ERROR':
       return {
