@@ -16,6 +16,7 @@ import ReduxThunk from 'redux-thunk';
 
 // const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
+store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
   <Provider store={store}>

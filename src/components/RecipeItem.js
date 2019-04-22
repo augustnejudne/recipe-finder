@@ -17,7 +17,7 @@ const RecipeItem = ({
     //   setStarred(true);
     // }
     const inFavorites = favorites.find(
-      e => e.recipe.label === hit.recipe.label
+      e => e.recipe.url === hit.recipe.url
     );
     if (inFavorites) {
       setStarred(true);

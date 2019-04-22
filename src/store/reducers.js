@@ -69,7 +69,7 @@ const favorites = (state = [], action) => {
     case ADD_TO_FAVORITES:
       return [...state, action.payload];
     case REMOVE_FROM_FAVORITES:
-      return state.filter(e => e.recipe.label !== action.payload.recipe.label);
+      return state.filter(e => e.recipe.url !== action.payload.recipe.url);
     default:
       return state;
   }
