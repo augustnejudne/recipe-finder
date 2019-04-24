@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
 body {
   text-align: center;
   padding: 5%;
+  background: #fcccc0;
 }
 
 .fontweight-light {
@@ -9,4 +12,9 @@ body {
 
 .badge a {
   color: #fff;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 2rem;
 }

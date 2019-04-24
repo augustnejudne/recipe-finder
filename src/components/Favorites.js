@@ -6,7 +6,7 @@ const Favorites = () => {
   return (
     <Fragment>
       <Link to="/">back to recipe finder</Link>
-      <h2>Favorites</h2>
+      <h1 style={{ color: '#3d5e67' }}>Favorites</h1>
       <div className="container">
         <div className="row justify-content-center">
           <FavoritesList />

@@ -29,11 +29,7 @@ const RecipeList = props => {
           </button>
         </div>
       ) : null}
-      {
-        error ?
-        <h4 className="display-4">{error}</h4>
-        : null
-      }
+      {error ? <h4 className="display-4">{error}</h4> : null}
     </Fragment>
   );
 };

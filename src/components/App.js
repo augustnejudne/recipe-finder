@@ -8,7 +8,7 @@ const App = props => {
   return (
     <Fragment>
       <Link to="/favorites">favorites</Link>
-      <h2>Recipe Finder</h2>
+      <h1 style={{color: '#3d5e67'}}>Recipe Finder</h1>
       <div className="container">
         <div className="row justify-content-center">
           <SearchRecipes />
