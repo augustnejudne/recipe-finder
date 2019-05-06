@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import SearchRecipes from './SearchRecipes.js';
-import RecipeList from './RecipeList.js';
-import { connect } from 'react-redux';
+import SearchRecipes from './SearchRecipes';
+import RecipeList from './RecipeList';
 
 const App = props => {
   return (
@@ -21,7 +20,4 @@ const App = props => {
   );
 };
 
-export default connect(
-  null,
-  null
-)(App);
+export default App;

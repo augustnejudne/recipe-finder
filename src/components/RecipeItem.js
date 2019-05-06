@@ -47,7 +47,7 @@ const RecipeItem = ({
           <div
             className="card-body"
             style={{
-              height: expand ? 'auto' : '400px',
+              height: expand ? 'auto' : '300px',
               overflow: 'hidden',
               position: 'relative',
             }}
@@ -66,7 +66,7 @@ const RecipeItem = ({
                 key={i}
                 className="badge badge-pill badge-success mx-1 fontweight-light"
               >
-                <a href={`https://www.google.com/search?q=${healthLabel}`}>
+                <a href={`https://www.google.com/search?q=${healthLabel}`} target="_blank" rel="noopener noreferrer">
                   {healthLabel}
                 </a>
               </span>
@@ -76,7 +76,7 @@ const RecipeItem = ({
                 key={i}
                 className="badge badge-pill badge-danger mx-1 fontweight-light"
               >
-                <a href={`https://www.google.com/search?q=${caution}`}>
+                <a href={`https://www.google.com/search?q=${caution}`} target="_blank" rel="noopener noreferrer">
                   {caution}
                 </a>
               </span>
